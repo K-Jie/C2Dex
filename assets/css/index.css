@@ -385,7 +385,13 @@ body {
   text-align: center;
 }
 
-/* 引导视频: 跟 .fig img 同一套外框, 但走浏览器原生控件 */
+/* 引导视频: 跟 .fig img 同一套外框, 但走浏览器原生控件。
+   宽度收到内容区的 2/3 并居中, 不然一进页面就占满整屏。 */
+.guide-video {
+  max-width: 66%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .guide-video video {
   display: block;
   width: 100%;
@@ -404,13 +410,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 18px;
 }
-/* 只有两张卡时, auto-fit 会让它们各占一半, 比四张卡时胖一倍。
-   这里锁回四栏时的单卡宽度((1132 - 3*18) / 4 ≈ 270px)并整体居中。 */
-.cards.cards-compact {
-  grid-template-columns: repeat(2, minmax(0, 270px));
-  justify-content: center;
-}
-
 .card {
   padding: 22px;
   background: #fff;
@@ -545,6 +544,21 @@ body {
   pointer-events: none;
 }
 
+/* 真机那节的 robot 片段做过变速(各自对齐同组 human 的时长), 左上角标个加速图标。
+   选择器只命中 *_robot.mp4, 仿真那节的 *_rollout.mp4 没变速, 不会误标。 */
+.vslot[data-src*="_robot"]::after {
+  content: "";
+  position: absolute;
+  left: 8px; top: 8px;
+  width: 28px; height: 18px;
+  border-radius: 6px;
+  background: rgba(16, 16, 19, .72)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23fff' stroke='%23fff' stroke-width='2' stroke-linejoin='round'%3E%3Cpolygon points='3.5,6.227 9.995,12 3.5,17.773'/%3E%3Cpolygon points='13.5,6.227 19.995,12 13.5,17.773'/%3E%3C/g%3E%3C/svg%3E")
+    center / 13px 13px no-repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* 视频还没放进来时的占位 */
 .vslot.empty {
   background:
@@ -627,8 +641,6 @@ body {
   .section { padding: 46px 0; }
   /* 窄屏容器比 430px 还窄, 不改成 1fr 的话网格会横向溢出 */
   .tasks { grid-template-columns: 1fr; gap: 28px; }
-  /* 270px 双栏在窄屏会挤, 收成单栏铺满 */
-  .cards.cards-compact { grid-template-columns: 1fr; }
   /* 窄屏两侧箭头改到内容上方压着, 不然视频被挤成两条 */
   .carousel { padding: 0 40px; }
   .cnav { width: 34px; height: 34px; font-size: 22px; }
