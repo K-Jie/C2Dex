@@ -215,9 +215,12 @@ body {
   animation: pipeline-caption-3 16s ease-in-out infinite;
 }
 
+/* top 上移 7.6%, 使本图的箭头与 hoi-label 的箭头处在同一水平线:
+   两张标签行数不同(3 行 vs 2 行), 画布内箭头位置分别在 102/117 和 68/82,
+   顶部对齐会让箭头差 25px。 */
 .part-retarget-label {
   left: 56.5%;
-  top: 30%;
+  top: 22.4%;
   width: 19%;
   animation: pipeline-reveal-4 16s ease-in-out infinite;
 }
@@ -639,7 +642,7 @@ body {
   /* 窄屏容器约 712x220, 横向更挤: 标签收窄, 手部图让到 ret-label 之前的空档 */
   .part-hoi-label { left: 27%; top: 30%; width: 17.5%; }
   .part-hand { left: 45%; top: 50%; width: 10%; }
-  .part-retarget-label { left: 56%; top: 30%; width: 18%; }
+  .part-retarget-label { left: 56%; top: 22.9%; width: 18%; }
   .part-hoi-caption { left: 43%; top: 83%; }
   .part-retarget-label { left: 59%; top: 34%; width: 18%; }
   .part-robot { right: -12%; top: 50%; width: 52%; }
