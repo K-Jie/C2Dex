@@ -385,6 +385,17 @@ body {
   text-align: center;
 }
 
+/* 引导视频: 跟 .fig img 同一套外框, 但走浏览器原生控件 */
+.guide-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #000;
+}
+
 /* ---------- method cards ---------- */
 
 .cards {
@@ -393,6 +404,13 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 18px;
 }
+/* 只有两张卡时, auto-fit 会让它们各占一半, 比四张卡时胖一倍。
+   这里锁回四栏时的单卡宽度((1132 - 3*18) / 4 ≈ 270px)并整体居中。 */
+.cards.cards-compact {
+  grid-template-columns: repeat(2, minmax(0, 270px));
+  justify-content: center;
+}
+
 .card {
   padding: 22px;
   background: #fff;
@@ -493,7 +511,7 @@ body {
   border: 1px solid var(--line);
   background: #101013;
 }
-/* 框的比例由 --ar 决定, 默认 16:9(真机轮播用这个)。
+/* 框的比例由 --ar 决定, 默认 16:9(真机那节用这个, 素材本身就是 16:9)。
    仿真那节在下面按数据集写死成素材的真实比例。换素材时记得同步改。 */
 .vslot { aspect-ratio: var(--ar, 1.7778); }
 
@@ -609,6 +627,8 @@ body {
   .section { padding: 46px 0; }
   /* 窄屏容器比 430px 还窄, 不改成 1fr 的话网格会横向溢出 */
   .tasks { grid-template-columns: 1fr; gap: 28px; }
+  /* 270px 双栏在窄屏会挤, 收成单栏铺满 */
+  .cards.cards-compact { grid-template-columns: 1fr; }
   /* 窄屏两侧箭头改到内容上方压着, 不然视频被挤成两条 */
   .carousel { padding: 0 40px; }
   .cnav { width: 34px; height: 34px; font-size: 22px; }
