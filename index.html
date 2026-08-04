@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -13,8 +13,8 @@
   <div class="hero-wall" aria-hidden="true"></div>
   <div class="wrap">
     <h1 class="title"><img src="assets/images/c2dex-wordmark-transparent.png" alt="C2Dex"></h1>
-    <h2 class="subtitle">Contact-Consistent Hand–Object Reconstruction and<br>
-      Interaction-Preserving Retargeting for Video-to-Dexterity Learning</h2>
+    <h2 class="subtitle">Contact-Consistent Reconstruction and Retargeting for<br>
+      Dexterous Manipulation from Monocular Video</h2>
     <p class="authors">Anonymous Authors</p>
     <p class="affil">Paper under double-blind review</p>
     <nav class="links">
@@ -33,10 +33,10 @@
       <div class="overview-card overview-animation" aria-label="Animated C2Dex pipeline overview">
         <img class="part-image part-video" src="assets/images/group-part/Video.png" alt="Human demonstration video">
         <span class="part-caption part-video-caption">Human Video</span>
-        <img class="part-image part-hoi-label" src="assets/images/group-part/ContactConsistentHOI.png" alt="Contact-consistent HOI reconstruction">
-        <img class="part-image part-hand" src="assets/images/group-part/HOI建模.png" alt="Reconstructed hand-object interaction">
+        <img class="part-image part-hoi-label" src="assets/images/group-part/ContactConsistentHOI-v2.png" alt="Contact-consistent HOI reconstruction">
+        <img class="part-image part-hand" src="assets/images/group-part/HOIRec.png" alt="Reconstructed hand-object interaction">
         <span class="part-caption part-hoi-caption">Reconstructed HOI</span>
-        <img class="part-image part-retarget-label" src="assets/images/group-part/NewRetarget.png" alt="Retargeting and policy training">
+        <img class="part-image part-retarget-label" src="assets/images/group-part/NewRetarget-v2.png" alt="Retargeting and policy training">
         <img class="part-image part-robot" src="assets/images/group-part/robot.png" alt="Dexterous robot executing the retargeted interaction">
         <span class="part-caption part-robot-caption">Robot Execution</span>
       </div>
@@ -79,7 +79,7 @@
     <ul class="keywords">
       <li>Hand–Object Interaction</li>
       <li>Contact-Consistent Reconstruction</li>
-      <li>Interaction-Preserving Retargeting</li>
+      <li>Contact-Interaction-Preserving Retargeting</li>
       <li>Human-to-Robot Skill Transfer</li>
       <li>Dexterous Manipulation</li>
     </ul>
@@ -93,7 +93,7 @@
       C2Dex converts a monocular human video into an executable dexterous manipulation trajectory through
       two tightly coupled modules. <b>Contact-consistent HOI reconstruction</b> recovers stable
       object-side contacts from noisy frame-wise observations and uses them to refine the human HOI
-      trajectory. <b>Interaction-preserving retargeting</b> transfers the reconstructed interaction to
+      trajectory. <b>Contact-interaction-preserving retargeting</b> transfers the reconstructed interaction to
       the target dexterous hand while preserving task-relevant contacts and local hand–object geometry.
     </p>
     <figure class="fig">
@@ -107,7 +107,7 @@
           used to refine the hand motion.</p>
       </div>
       <div class="card">
-        <h4>Interaction-Preserving Retargeting</h4>
+        <h4>Contact-Interaction-Preserving Retargeting</h4>
         <p>Starting from a keypoint-based initialization, stable contact optimization transfers
           task-relevant contacts while Laplacian optimization preserves local hand–object geometry.
           Residual reinforcement learning then yields the executable trajectory.</p>
@@ -128,21 +128,21 @@
 
     <div class="tasks tasks-real">
       <div class="task">
-        <h4>Wipe</h4>
+        <h4>Wipe Board</h4>
         <div class="vpair">
           <div class="vslot" data-src="assets/videos/real/wipe_human.mp4" data-label="Human"></div>
           <div class="vslot" data-src="assets/videos/real/wipe_robot.mp4" data-label="Robot"></div>
         </div>
       </div>
       <div class="task">
-        <h4>Pour</h4>
+        <h4>Pour Juice</h4>
         <div class="vpair">
           <div class="vslot" data-src="assets/videos/real/pour_human.mp4" data-label="Human"></div>
           <div class="vslot" data-src="assets/videos/real/pour_robot.mp4" data-label="Robot"></div>
         </div>
       </div>
       <div class="task">
-        <h4>Sweep</h4>
+        <h4>Sweep Litter</h4>
         <div class="vpair">
           <div class="vslot" data-src="assets/videos/real/sweep_human.mp4" data-label="Human"></div>
           <div class="vslot" data-src="assets/videos/real/sweep_robot.mp4" data-label="Robot"></div>
@@ -156,7 +156,7 @@
         </div>
       </div>
       <div class="task">
-        <h4>Drop</h4>
+        <h4>Drop Litter</h4>
         <div class="vpair">
           <div class="vslot" data-src="assets/videos/real/drop_human.mp4" data-label="Human"></div>
           <div class="vslot" data-src="assets/videos/real/drop_robot.mp4" data-label="Robot"></div>
@@ -170,7 +170,7 @@
         </div>
       </div>
       <div class="task">
-        <h4>Brush</h4>
+        <h4>Brush Litter</h4>
         <div class="vpair">
           <div class="vslot" data-src="assets/videos/real/brush_human.mp4" data-label="Human"></div>
           <div class="vslot" data-src="assets/videos/real/brush_robot.mp4" data-label="Robot"></div>
@@ -213,9 +213,10 @@
       </div>
       <div class="task">
         <h4>Sequence 3</h4>
+        <!-- 展示顺序上 seq3 与 seq7 对调; 文件本身仍与 DexYCB 的原始序号一一对应 -->
         <div class="vpair">
-          <div class="vslot" data-src="assets/videos/sim/dexycb/seq3_human.mp4" data-label="Human video"></div>
-          <div class="vslot" data-src="assets/videos/sim/dexycb/seq3_rollout.mp4" data-label="Policy rollout"></div>
+          <div class="vslot" data-src="assets/videos/sim/dexycb/seq7_human.mp4" data-label="Human video"></div>
+          <div class="vslot" data-src="assets/videos/sim/dexycb/seq7_rollout.mp4" data-label="Policy rollout"></div>
         </div>
       </div>
       <div class="task">
@@ -242,8 +243,8 @@
       <div class="task">
         <h4>Sequence 7</h4>
         <div class="vpair">
-          <div class="vslot" data-src="assets/videos/sim/dexycb/seq7_human.mp4" data-label="Human video"></div>
-          <div class="vslot" data-src="assets/videos/sim/dexycb/seq7_rollout.mp4" data-label="Policy rollout"></div>
+          <div class="vslot" data-src="assets/videos/sim/dexycb/seq3_human.mp4" data-label="Human video"></div>
+          <div class="vslot" data-src="assets/videos/sim/dexycb/seq3_rollout.mp4" data-label="Policy rollout"></div>
         </div>
       </div>
       <div class="task">

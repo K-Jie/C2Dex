@@ -189,30 +189,36 @@ body {
   animation: pipeline-caption-1 16s ease-in-out infinite;
 }
 
+/* 两个标签的宽度按各自画布尺寸取值, 使文字缩放比一致(0.786 / 0.771),
+   否则并排看字号会不一样: ContactConsistentHOI-v2 是 259x82, NewRetarget-v2 是 271x117。 */
 .part-hoi-label {
-  left: 27%;
+  left: 26%;
   top: 30%;
-  width: 20%;
+  width: 18.5%;
   animation: pipeline-reveal-2 16s ease-in-out infinite;
 }
 
+/* HOIRec.png 是竖构图(353x455, 比例 0.776), 比旧素材(比例 1.723)窄而高, 且裁到内容边界后
+   画面填满整个框 —— 旧素材左上角是空的, 标签压上去看不出来, 换新图后就露馅了。
+   横向可用区间只有 hoi-label 可见右端 到 ret-label 左端 这一段, 故取 12%(=132px 宽 / 170px 高)
+   并居中放在这段里。容器 1100x335 时实测零重叠。 */
 .part-hand {
-  left: 39%;
+  left: 43.8%;
   top: 50%;
-  width: 23%;
+  width: 12%;
   animation: pipeline-reveal-3-centered 16s ease-in-out infinite;
 }
 
 .part-hoi-caption {
-  left: 40%;
+  left: 44%;                 /* 对齐 .part-hand 的水平中心 */
   top: 83%;
   animation: pipeline-caption-3 16s ease-in-out infinite;
 }
 
 .part-retarget-label {
-  left: 59%;
+  left: 56.5%;
   top: 30%;
-  width: 17%;
+  width: 19%;
   animation: pipeline-reveal-4 16s ease-in-out infinite;
 }
 
@@ -630,9 +636,11 @@ body {
   .overview-animation { height: 220px; min-height: 0; }
   .part-video { left: 1%; top: 26%; width: 27%; }
   .part-video-caption { left: 5.5%; top: 83%; }
-  .part-hoi-label { left: 27%; top: 34%; width: 22%; }
-  .part-hand { left: 39%; top: 50%; width: 24%; }
-  .part-hoi-caption { left: 35%; top: 83%; }
+  /* 窄屏容器约 712x220, 横向更挤: 标签收窄, 手部图让到 ret-label 之前的空档 */
+  .part-hoi-label { left: 27%; top: 30%; width: 17.5%; }
+  .part-hand { left: 45%; top: 50%; width: 10%; }
+  .part-retarget-label { left: 56%; top: 30%; width: 18%; }
+  .part-hoi-caption { left: 43%; top: 83%; }
   .part-retarget-label { left: 59%; top: 34%; width: 18%; }
   .part-robot { right: -12%; top: 50%; width: 52%; }
   .part-robot-caption { right: 0; top: 83%; }
