@@ -108,8 +108,13 @@ body {
   text-shadow: none;
 }
 
-.authors { margin: 28px 0 2px; font-size: 18px; font-weight: 600; }
-.affil { margin: 0; color: var(--muted); font-size: 15px; }
+.authors { margin: 28px 0 2px; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.affil { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+/* line-height:0 让上标不撑开行距(默认 sup 会把 18px 那行顶开) */
+.authors sup, .affil sup { font-size: .68em; line-height: 0; }
+/* 页面没有全局 a 样式, 邮箱链接会变成浏览器默认的蓝色下划线, 与这行淡灰不搭 */
+.affil a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); }
+.affil a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
 .links { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 

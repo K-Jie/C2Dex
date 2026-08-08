@@ -15,8 +15,15 @@
     <h1 class="title"><img src="assets/images/c2dex-wordmark-transparent.png" alt="C2Dex"></h1>
     <h2 class="subtitle">Contact-Consistent Reconstruction and Retargeting for<br>
       Dexterous Manipulation from Monocular Video</h2>
-    <p class="authors">Anonymous Authors</p>
-    <p class="affil">Paper under double-blind review</p>
+    <p class="authors">Jie Ren<sup>1,*</sup>, Zhehao Jiang<sup>1,*</sup>, Yinhong Yang<sup>1,*</sup>,
+      Haorui Jia<sup>1</sup>, Han Jiang<sup>1</sup>, Ben Li<sup>2</sup>, Yao Yao<sup>1</sup>,
+      Cheng Lin<sup>1</sup>, Qiu Shen<sup>1</sup>, Zhenshan Bing<sup>1</sup>,
+      Xiao-Xiao Long<sup>1,&dagger;</sup>, Xun Cao<sup>1</sup></p>
+    <p class="affil"><sup>1</sup>Nanjing University, Nanjing, China &nbsp;&middot;&nbsp;
+      <sup>2</sup>China Mobile Research Institute, Beijing, China</p>
+    <p class="affil"><sup>*</sup>Equal contribution &nbsp;&middot;&nbsp;
+      <sup>&dagger;</sup>Corresponding author: <a href="mailto:xxlong@nju.edu.cn">xxlong@nju.edu.cn</a></p>
+    <p class="affil">Submitted to IEEE Robotics and Automation Letters</p>
     <nav class="links">
       <span class="btn disabled" title="Withheld during the anonymous review period">
         <span class="ico">&#9646;</span> Paper (PDF)
@@ -72,7 +79,7 @@
       hand, employs Laplacian interaction optimization to preserve the surrounding local hand–object
       geometry across embodiments, and refines the trajectory via residual reinforcement learning in
       simulation. Experiments on DexYCB and TACO show that C2Dex achieves end-to-end trajectory success
-      rates of <b>55.56%</b> and <b>26.67%</b>, respectively, substantially outperforming the strongest
+      rates of <b>57.78%</b> and <b>26.67%</b>, respectively, substantially outperforming the strongest
       baselines (<b>17.78%</b> and <b>10.00%</b>) under identical evaluation criteria. Real-robot
       experiments further verify direct execution across diverse contact-rich manipulation tasks.
     </p>
@@ -120,7 +127,7 @@
   <div class="wrap">
     <h3 class="head">Real-World Results</h3>
     <p class="lead">
-      We collect 25 human demonstration videos covering 10 contact-rich daily manipulation tasks. For each
+      We collect 24 human demonstration videos covering 8 contact-rich daily manipulation tasks. For each
       demonstration, C2Dex reconstructs the human HOI and generates the corresponding dexterous-hand–object
       trajectory, which is then <b>directly replayed</b> on a physical robot equipped with the Inspire
       dexterous hand — no per-task policy training and no teleoperation.
@@ -300,22 +307,6 @@
           <div class="vslot" data-src="assets/videos/sim/taco/seq6_rollout.mp4" data-label="Policy rollout"></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section alt">
-  <div class="wrap narrow">
-    <h3 class="head">BibTeX</h3>
-    <div class="bibtex">
-      <button class="copy" type="button">Copy</button>
-<pre>@article{c2dex2026,
-  title   = {C2Dex: Contact-Consistent Reconstruction and Retargeting for
-             Dexterous Manipulation from Monocular Video},
-  author  = {Anonymous},
-  journal = {IEEE Robotics and Automation Letters (under review)},
-  year    = {2026}
-}</pre>
     </div>
   </div>
 </section>
