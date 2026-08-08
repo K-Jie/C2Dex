@@ -111,10 +111,22 @@ body {
 .authors { margin: 28px 0 2px; font-size: 18px; font-weight: 600; line-height: 1.5; }
 .affil { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 /* line-height:0 让上标不撑开行距(默认 sup 会把 18px 那行顶开) */
-.authors sup, .affil sup { font-size: .68em; line-height: 0; }
-/* 页面没有全局 a 样式, 邮箱链接会变成浏览器默认的蓝色下划线, 与这行淡灰不搭 */
-.affil a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); }
-.affil a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.authors sup, .affil sup, .org-name sup { font-size: .68em; line-height: 0; }
+
+/* 单位区: 标志在上, 粗体单位名在下 */
+.affil-orgs {
+  margin: 18px 0 0;
+  display: flex;
+  gap: 58px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.org { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+/* 固定高度容器 + 底对齐: 两个标志当前像素高相同, 但换素材后高度若不一致,
+   下方的单位名仍然齐平, 不会被高的那个推下去 */
+.org-mark { height: 92px; display: flex; align-items: flex-end; }
+.org-mark img { display: block; height: 100%; width: auto; }
+.org-name { font-size: 16px; font-weight: 700; color: var(--ink); }
 
 .links { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
@@ -639,6 +651,10 @@ body {
   .title { font-size: 46px; }
   .title img { width: min(300px, 72vw); }
   .subtitle { font-size: 20px; }
+  /* 窄屏容器只有约 712px, 收窄间距并缩小标志 */
+  .affil-orgs { gap: 30px; margin-top: 14px; }
+  .org-mark { height: 68px; }
+  .org-name { font-size: 14px; }
   .hero-overview { margin-top: 24px; }
   .overview-card { border-radius: 12px; }
   .overview-animation { height: 220px; min-height: 0; }
